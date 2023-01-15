@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="rounded m-3  text-white" style="height: 100%;">
+<div id="Interval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#Interval" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#Interval" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#Interval" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" style="background: #f5c2c7">
+    <div class="carousel-item active">
+      <img src="{% static 'images/main.png' %}" class="mx-auto d-block w-100" alt="pic1" style="max-width: 68%;">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/452.png' %}" class="d-block w-100" alt="pic2" style="max-width:95%">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/iu.png' %}" class="mx-auto d-block w-100" alt="pic3" style="width:auto;">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#Interval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#Interval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="jumbotron text-center  " style="background: #f5c2c7">
+    <br>
+<h1>Welcome to the PomPam Shoes Shop.</h1>
+</div>
+<p class="p-3 bg-secondary" style=""><b>ร้านรองเท้าออนไลน์ ช้อปง่าย ๆ ส่งตรงถึงหน้าบ้านต้อง PomPam Shoes Shop.   </b>
+   &nbsp; เดี๋ยวนี้อะไร ๆ ก็ขายออนไลน์กันหมด สำหรับสาว ๆ ที่รักในการช้อปปิ้งออนไลน์ ไม่ว่าจะเป็นของใช้หรือสินค้าแฟชั่นก็คงกำลังมองหาสิ่งนี้อยู่แน่ ๆ คะ
+    เพราะ PomPam Shoes Shop ได้ขนเอารองเท้าแฟชั่นมาให้แล้ว แค่สาว ๆ เปิดเว็บเปิดแอปก็ช้อปได้เพลิน ๆ กันไปเลยยยยยยยยยยย
+</p>
+</div>
+{% endblock %}

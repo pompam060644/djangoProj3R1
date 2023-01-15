@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="rounded m-3 fs-6" style="background: #f5c2c7">
+        <div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-warning flex-fill text-white" style="background: #0dcaf0 ">
+             <h2><i class="fa-solid fa-user-hair-long"></i>ประวัติส่วนตัว</h2>
+            </div>
+        </div>
+        <div class="m-2 pt-2">
+            <img src="{% static 'images/13.jpg' %}" class="rounded float-end img-thumbnail border border-info" alt="mypic" width="300">
+         <div class="row pt-10">
+          <div class="col-lg-10">
+            <b>
+                - ชื่อ : นางสาวพัชราพร ดวงจิตร ชื่อเล่น พอมแพม อายุ 21 ปี<br>
+                     - เกิดวันที่ : 6 มิถุนายน 2544<br>
+                     - เชื้อชาติ : ไทย สัญชาติ : ไทย ศาสนา : พุทธ<br>
+                     - ที่อยู่ปัจจุบัน : 329 ม.11 บ้านนาจาน ตำบลหนองแปน อำเภอมัญจาคีรี จังหวัดขอนแก่น 40160<br>
+                     - เบอร์โทร : 093-431-2876<br>
+                     - อีเมล : Patcharaporn.du@rmuit.ac.th<br>
+                     - สีที่ชอบ : สีชมพู <br>
+                     - อาหารที่ชอบ : อาหารประเภทเส้น<br>
+                     - คติประจำใจ : ไม่ถึงต้องเขย่ง ไม่เก่งต้องขยัน ไม่ไหวจริงๆก็พักก่อน
+
+            </b>
+          </div>
+
+         </div>
+
+        </div>
+    </div>
+{% endblock %}
