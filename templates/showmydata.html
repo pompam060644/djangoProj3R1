@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <head>
+        <style>
+            #pic { width: 200px; }
+            th {text-align: center;}
+            td {text-align: center;
+                vertical-align: middle;
+                font-size: 18px;}
+            p{font-size: 18px}
+        </style>
+    </head>
+   <div class="rounded m-3 fs-6" style="background: #f5c2c7; height: 100%">
+   <div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-danger flex-fill text-white" style="font-family:'Yellowtail', cursive;">
+             <h2><img src="{% static 'images/dcv.png' %}" alt="com" width="75px" > Show My Data</h2>
+            </div>
+        </div>
+      <div class="row p-2">
+        <div class="col-6">
+          <b><p>รหัสประจำตัว: {{ stdid }}</p>
+            <p>ที่อยู่: {{ address }}</p>
+            <p>น้ำหนัก: {{ weigth }}</p>
+            <p>สี: {{ colors }}</p>
+            <p>อาชีพ: {{ job }}</p></b>
+        </div>
+        <div class="col-6">
+           <b><p>ชื่อ: {{ name }}</p>
+            <p>เพศ: {{ gender }}</p>
+            <p>ส่วนสูง: {{ heigth }}</p>
+               <p>อาหารที่ชอบ: {{ food }}</p></b>
+        </div>
+    </div>
+    <div>
+           <table class="table table-danger table-hover table-striped">
+        <tr>
+            <th><h3>สินค้า</h3></th>
+             <th><h3>ราคา</h3></th>
+             <th><h3>รูป</h3></th>
+        </tr>
+        {% for listproduct in myproduct %}
+        <tr>
+            <td>{{ listproduct.0 }}</td>
+            <td>{{ listproduct.1 }}</td>
+            <td><img src="{% static listproduct.2 %}" width="100" alt="pic" id="pic"></td>
+        </tr>
+        {% endfor %}
+           </table>
+        </div>
+    </div>
+   </div>
+{% endblock %}
