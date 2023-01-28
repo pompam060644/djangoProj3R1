@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load humanize %}
+    <head>
+        <style>
+            #pic { width: 200px;}
+            td {text-align: center;
+             vertical-align: middle;
+                font-size: 16px;}
+            p{font-size: 18px}
+            th { vertical-align: middle;
+                font-size: 20px;}
+        </style>
+    </head>
+    {% load static %}
+    <div class="rounded m-3 bg-white" style="height: 100%; font-family: 'Prompt', sans-serif;">
+    <div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-danger flex-fill text-white" style="font-family:'Yellowtail', cursive;">
+             <h2> Practice 11</h2>
+            </div>
+        </div>
+        <br>
+    <div class="row">
+        <div class="col-6 px-3">
+          <b>
+              <p>ข้อมูลสินค้าประเภท: {{ details }}</p>
+              <p>ผู้จัดทำ: {{ name }}</p>
+              <p>วันที่เผยแผร่: {{ date }}</p>
+             <a class="btn btn-success" href="{% url 'inputProduct' %}">เพิ่มข้อมูล</a>
+            </b>
+        </div>
+
+    </div>
+        <div>
+           <table class="table table-danger table-hover table-striped table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Colors</th>
+            <th>Size</th>
+            <th>Promotion</th>
+             <th>Price</th>
+            <th>Amount</th>
+            <th>Discount</th>
+            <th>Total</th>
+
+
+        </tr>
+        {% for listproduct in lstProduct %}
+        <tr>
+        <td>{{ listproduct.getPid }}</td>
+            <td>{{ listproduct.getPname }}</td>
+            <td>{{ listproduct.getColor }}</td>
+            <td>{{ listproduct.getSize }}</td>
+            <td>{{ listproduct.getPromotion }}</td>
+            <td>{{ listproduct.getPrice|intcomma }} บาท</td>
+            <td>{{ listproduct.getAmount }}</td>
+            <td>{{ listproduct.getDiscount|floatformat  }}</td>
+            <td>{{ listproduct.getNet|intcomma }} บาท</td>
+
+        </tr>
+               {% endfor %}
+           </table>
+        </div>
+    </div>
+{% endblock %}

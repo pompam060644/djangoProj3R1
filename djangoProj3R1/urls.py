@@ -27,4 +27,6 @@ urlpatterns = [
     path('rloemodel', views.rloemodel, name='rloemodel'),
     path('etc', views.etc, name='etc'),
     path('showmydata', views.mydata, name='showmydata'),
+    path('listProduct', views.listProduct, name ='listProduct'),
+    path('inputProduct', views.inputProduct, name='inputProduct')
 ]

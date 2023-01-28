@@ -1,5 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+import datetime
+from ProfileApp.form import *
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -37,3 +38,36 @@ def mydata(request):
     return render(request, 'showmydata.html', {'name':name, 'stdid':stdid, 'address':address, 'gender':gender,
                                           'weigth':weigth, 'heigth':heigth, 'colors':colors, 'food':food,
                                           'job':job, 'myproduct':myproduct})
+
+lstOurProduct = []
+# pd1 = product("P01", "รองเท้า adidas", "White", "36", 1499, 1, True)
+# lstOurProduct.append(pd1)
+def listProduct(request):
+    details = "รองเท้า"
+    name = "นางสาวพัชราพร ดวงจิตร"
+    date = datetime.datetime.now()
+    return render(request, 'listProduct.html', {'lstProduct': lstOurProduct,
+                                              'details': details, 'name': name,
+                                              'date': date.strftime("%A %d-%m-%Y %H : %M")})
+def inputProduct(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            pid = form.cleaned_data['pid']
+            pname = form.cleaned_data['pname']
+            color = form.cleaned_data['colors']
+            size = form.cleaned_data['size']
+            price = form.cleaned_data['price']
+            am = form.cleaned_data['amount']
+            promotion = form.cleaned_data['promotion']
+            productnew = product(pid, pname, color, size, price, am, promotion)
+            lstOurProduct.append(productnew)
+            return redirect('listProduct')
+        else:
+            return redirect('pro_retrive_all')
+    else:
+        form = ProductForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'inputProduct.html', context)
