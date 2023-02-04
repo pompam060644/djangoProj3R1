@@ -28,5 +28,15 @@ urlpatterns = [
     path('etc', views.etc, name='etc'),
     path('showmydata', views.mydata, name='showmydata'),
     path('listProduct', views.listProduct, name ='listProduct'),
-    path('inputProduct', views.inputProduct, name='inputProduct')
+    path('inputProduct', views.inputProduct, name='inputProduct'),
+    path('goodslist', views.showGoodsList, name='goodslist'),
+    path('<str:gid>/goodsOne', views.showGoodsOne, name='goodsOne'),
+    path('newGoods', views.newGoodsCreate, name='newGoods'),
+    path('<str:gid>/goodsUpdate', views.GoodsUpdate, name='goodsUpdate'),
+    path('<str:gid>/goodsDel', views.GoodsDel, name='goodsDel'),
+    path('customerlist', views.showCustomerList, name='customerList'),
+    path('register', views.register, name='register'),
+    path('<str:cid>/cusupdate', views.CustomerUpdate, name='cusupdate'),
+    path('<str:cid>/cusdel', views.CustomerDel, name='cusdel'),
+    path('<str:cid>/cusone', views.showCusOne, name='cusone'),
 ]

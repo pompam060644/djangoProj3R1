@@ -71,3 +71,108 @@ def inputProduct(request):
         'form': form
     }
     return render(request, 'inputProduct.html', context)
+def showGoodsList (request):
+    #Query
+    result = Goods.objects.all()
+    return render(request, 'showGoodsList.html', {'result' : result})
+
+def showGoodsOne (request,gid):
+    context ={}
+    goodsone_info = Goods.objects.get(gid=gid)
+    #result ={'goodsone_info':goodsone_info}
+    form = GoodsForm(request.POST or None, instance=goodsone_info)
+    context["form"] = form
+    return render(request, 'showGoodsOne.html', context)
+
+
+
+def newGoodsCreate (request):
+    context = {}
+    if request.method == 'POST':
+        form = GoodsForm(request.POST)
+        obj = Goods.objects.filter(gid=request.POST['gid'])
+        if obj:
+            context["form"] = form
+            return render(request, "newGoodsCreate.html", context)
+        if form.is_valid():
+            form.save()
+            return redirect('goodslist')
+        else:
+            return redirect('pro_retrive_all')
+    else:
+        form = GoodsForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'newGoodsCreate.html', context)
+def GoodsUpdate (request,gid):
+    context = {}
+    obj = Goods.objects.get(gid=gid)
+    form = GoodsFormUpdate(request.POST or None, instance=obj)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('goodslist')
+    else:
+        context["form"] = form
+        return render(request, "GoodsUpdate.html", context)
+
+def GoodsDel (request,gid):
+    goods = Goods.objects.get(gid=gid)
+    if request.method =="GET":
+        goods.delete()
+        return redirect('goodslist')
+    # value = {'value': goods}
+    # return render(request, 'form/Goodsdel.html', value)
+
+def showCustomerList (request):
+    result = Customer.objects.all()
+    return render(request, 'showCustomerList.html', {'result': result})
+
+def register (request):
+    context = {}
+    if request.method == 'POST':
+        form = CusForm(request.POST)
+        obj = Customer.objects.filter(cid=request.POST['cid'])
+        if obj:
+            context["form"] = form
+            return render(request, "newGoodsCreate.html", context)
+        if form.is_valid():
+            form.save()
+            return redirect('customerList')
+        else:
+            return redirect('pro_retrive_all')
+    else:
+        form = CusForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'register.html', context)
+
+def CustomerUpdate (request,cid):
+    context = {}
+    obj = Customer.objects.get(cid=cid)
+    form = CusFormUpdate(request.POST or None, instance=obj)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('customerList')
+    else:
+        context["form"] = form
+        return render(request, "CustomerUpdate.html", context)
+
+def CustomerDel (request,cid):
+    Cus = Customer.objects.get(cid=cid)
+    if request.method == "GET":
+        Cus.delete()
+        return redirect('customerList')
+    # value = {'value':Cus}
+    # return render(request,'form/showCustomerList.html',value)
+
+def showCusOne (request,cid):
+    context ={}
+    Cusone_info = Customer.objects.get(cid=cid)
+    #result ={'goodsone_info':goodsone_info}
+    form = CusForm(request.POST or None, instance=Cusone_info)
+    context["form"] = form
+    return render(request, 'showCusOne.html', context)

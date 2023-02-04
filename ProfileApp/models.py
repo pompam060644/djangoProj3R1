@@ -46,7 +46,7 @@ class GoodsCategory(models.Model):
     gc_name = models.CharField(max_length=50, default="")
     desc = models.CharField(max_length=200, default="")
     def __str__(self):
-        return str(self.cid)+ ":" + self.gc_name + ":" + self.desc
+        return str(self.cid)+ ":" + self.gc_name
 
 class Goods(models.Model):
     g_category = models.ForeignKey(GoodsCategory, on_delete=models.CASCADE, default=None)

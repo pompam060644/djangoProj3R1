@@ -4,44 +4,44 @@
     {% load humanize %}
      <div class="rounded m-3 bg-white" style="height: 100%; font-family: 'Prompt', sans-serif; font-size:22px;">
     <div class="d-flex pt-3 bd-highlight">
-            <div class="p-2 bg-dark flex-fill text-white" style="font-family:'Yellowtail', cursive;">
+            <div class="p-2 bg-danger flex-fill text-white" style="font-family:'Yellowtail', cursive;">
              <h2><img src="{% static 'images/py.png' %}" alt="com" width="75px"> Customer One</h2>
             </div>
         </div>
          <br>
-    <table class="table table-dark table-striped">
+    <table class="table table-danger table-striped">
         <tr>
             <th>TYPE</th>
             <th>VALUE</th>
         </tr>
         <tr>
-            <td>CUSTOMERID</td>
+            <td>รหัสลูกค้า</td>
             <td>{{form.cid}}</td>
         </tr>
 
         <tr>
-            <td>CUSTOMERNAME</td>
+            <td>ชื่อลูกค้า</td>
             <td>{{form.name}}</td>
 
         </tr>
         <tr>
-            <td>CUSTOMERSURNAME</td>
+            <td>นามสกุล</td>
             <td>{{form.surname}}</td>
         </tr>
         <tr>
-            <td>ADDRESS</td>
+            <td>ที่อยู่</td>
             <td>{{form.address}}</td>
         </tr>
         <tr>
-            <td>TEL</td>
+            <td>เบอร์โทร</td>
             <td>{{form.tel}}</td>
         </tr>
         <tr>
-            <td>GENDER</td>
+            <td>เพศ</td>
             <td>{{form.gender}}</td>
         </tr>
          <tr>
-            <td>CARREER</td>
+            <td>อาชีพ</td>
             <td>{{form.carreer}}</td>
         </tr>
     
