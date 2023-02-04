@@ -1,0 +1,50 @@
+{%  extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    {% load humanize %}
+     <div class="rounded m-3 bg-white" style="height: 100%; font-family: 'Prompt', sans-serif; font-size:22px;">
+    <div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-dark flex-fill text-white" style="font-family:'Yellowtail', cursive;">
+             <h2><img src="{% static 'images/py.png' %}" alt="com" width="75px"> GoodsList</h2>
+            </div>
+        </div>
+         <br>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>TYPE</th>
+            <th>VALUE</th>
+        </tr>
+        <tr>
+            <td>CATAGORY</td>
+            <td>{{form.g_category}}</td>
+        </tr>
+
+        <tr>
+            <td>GOODSID</td>
+            <td>{{form.gid}}</td>
+
+        </tr>
+        <tr>
+            <td>BRAND</td>
+            <td>{{form.brand}}</td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+            <td>{{form.g_name}}</td>
+        </tr>
+        <tr>
+            <td>PRICE</td>
+            <td>{{form.price}}</td>
+        </tr>
+        <tr>
+            <td>NET</td>
+            <td>{{form.Net}}</td>
+        </tr>
+         <tr>
+            <td>PROPERTY</td>
+            <td>{{form.product}}</td>
+        </tr>
+
+    </table>
+     </div>
+{% endblock %}

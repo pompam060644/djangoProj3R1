@@ -1,0 +1,26 @@
+{%  extends 'base.html' %}
+{% block content %}
+     {% load static %}
+    {% load humanize %}
+     <div class="rounded m-3 bg-white" style="height: 100%; font-family: 'Prompt', sans-serif; font-size:22px;">
+    <div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-dark flex-fill text-white" style="font-family:'Yellowtail', cursive;">
+             <h2><img src="{% static 'images/py.png' %}" alt="com" width="75px"> Customer Update</h2>
+            </div>
+        </div>
+         <div class="rounded m-3 bg-white" style="font-weight: bold;">
+    <form class ="" method = "post">
+        {% csrf_token %}
+       <b> <div class ="form-group">
+            {{ form.as_table }}
+        </div>
+           </b>
+        <br>
+    <p class = "text-center">
+        <button type ="submit" value="Update" class="btn btn-success">ยืนยัน</button>
+        <button type ="cancel" value="Cancel" class="btn btn-danger" onclick="location.href={% url 'goodslist' %}">ยกเลิก</button>
+    </p>
+    </form>
+         </div>
+     </div>
+{% endblock %}

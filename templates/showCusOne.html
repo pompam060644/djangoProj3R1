@@ -1,0 +1,51 @@
+{%  extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    {% load humanize %}
+     <div class="rounded m-3 bg-white" style="height: 100%; font-family: 'Prompt', sans-serif; font-size:22px;">
+    <div class="d-flex pt-3 bd-highlight">
+            <div class="p-2 bg-dark flex-fill text-white" style="font-family:'Yellowtail', cursive;">
+             <h2><img src="{% static 'images/py.png' %}" alt="com" width="75px"> Customer One</h2>
+            </div>
+        </div>
+         <br>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>TYPE</th>
+            <th>VALUE</th>
+        </tr>
+        <tr>
+            <td>CUSTOMERID</td>
+            <td>{{form.cid}}</td>
+        </tr>
+
+        <tr>
+            <td>CUSTOMERNAME</td>
+            <td>{{form.name}}</td>
+
+        </tr>
+        <tr>
+            <td>CUSTOMERSURNAME</td>
+            <td>{{form.surname}}</td>
+        </tr>
+        <tr>
+            <td>ADDRESS</td>
+            <td>{{form.address}}</td>
+        </tr>
+        <tr>
+            <td>TEL</td>
+            <td>{{form.tel}}</td>
+        </tr>
+        <tr>
+            <td>GENDER</td>
+            <td>{{form.gender}}</td>
+        </tr>
+         <tr>
+            <td>CARREER</td>
+            <td>{{form.carreer}}</td>
+        </tr>
+    
+
+    </table>
+     </div>
+{% endblock %}
